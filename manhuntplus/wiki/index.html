@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManhuntPlus Wiki</title>
+    <style>
+        :root {
+            --primary-dark: #121212;
+            --secondary-dark: #1e1e1e;
+            --accent-yellow: #FFD700;
+            --accent-orange: #FF8C00;
+            --text-light: #FFFFFF;
+            --text-gray: #B0B0B0;
+            --card-bg: #252525;
+            --border-radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-dark), #0a0a0a);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-light);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 30px;
+            border-bottom: 1px solid var(--accent-yellow);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        p, li {
+            color: var(--text-gray);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        th {
+            background-color: rgba(255, 215, 0, 0.1);
+            color: var(--text-light);
+        }
+
+        code {
+            background-color: var(--card-bg);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--text-light);
+        }
+
+        pre {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            color: var(--text-light);
+        }
+
+        .config-section {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+
+        .config-section h3 {
+            color: var(--accent-yellow);
+        }
+
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .config-table th, .config-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .config-table th {
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ManhuntPlus Wiki</h1>
+        <p>Welcome to the official wiki for ManhuntPlus, a Minecraft plugin designed to bring the exciting Manhunt game mode to your server.</p>
+
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#configuration">Configuration</a></li>
+            <li><a href="#commands">Commands</a></li>
+            <li><a href="#permissions">Permissions</a></li>
+            <li><a href="#dependencies">Dependencies</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#support">Support</a></li>
+        </ol>
+
+        <h2 id="introduction">Introduction</h2>
+        <p>ManhuntPlus is a Minecraft plugin that allows players to engage in the Manhunt game mode, where hunters chase speedrunners in a thrilling and competitive gameplay experience. This plugin is compatible with a wide range of Minecraft versions and offers an easy-to-use command and permission system.</p>
+
+        <h2 id="installation">Installation</h2>
+        <p>To install ManhuntPlus on your server, follow these steps:</p>
+        <ol>
+            <li><strong>Download the Plugin:</strong> Get the latest version of ManhuntPlus from <a href="https://modrinth.com/plugin/manhuntplus">Modrinth</a>.</li>
+            <li><strong>Add to Server:</strong> Place the downloaded <code>.jar</code> file into your server's <code>plugins</code> folder.</li>
+            <li><strong>Restart Server:</strong> Restart your Minecraft server to load the plugin.</li>
+        </ol>
+
+        <h2 id="configuration">Configuration</h2>
+        <p>ManhuntPlus comes with a default configuration file that is generated upon first run. You can customize the plugin by editing the <code>config.yml</code> file located in the <code>plugins/ManhuntPlus</code> directory.</p>
+
+        <div class="config-section">
+            <h3>Game Settings</h3>
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Default Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>freeze-duration</code></td>
+                        <td>Duration of freeze countdown at start (in seconds).</td>
+                        <td><code>5</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>hunter-spawn-radius</code></td>
+                        <td>Radius around speedrunner where hunters will spawn (blocks).</td>
+                        <td><code>20</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>end-on-dragon-kill</code></td>
+                        <td>Should game end when Ender Dragon is killed?</td>
+                        <td><code>true</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>give-hunters-resistance</code></td>
+                        <td>Should hunters get resistance effect at start?</td>
+                        <td><code>false</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>give-speedrunners-speed</code></td>
+                        <td>Should speedrunners get speed effect at start?</td>
+                        <td><code>false</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="config-section">
+            <h3>Compass Settings</h3>
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Default Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td>Display name of hunter's tracking compass.</td>
+                        <td><code>"&a&lHunter Compass"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>lore</code></td>
+                        <td>Lore for the compass (supports multiple lines).</td>
+                        <td><code>["&7Tracks the nearest speedrunner", "&7Works across dimensions"]</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>update-interval</code></td>
+                        <td>How often compass updates target location (in ticks, 20 ticks = 1 second).</td>
+                        <td><code>20</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="config-section">
+            <h3>Scoreboard Settings</h3>
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Default Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>enabled</code></td>
+                        <td>Should scoreboard be enabled during game?</td>
+                        <td><code>true</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>title</code></td>
+                        <td>Scoreboard title.</td>
+                        <td><code>"&6&lManhunt"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>update-interval</code></td>
+                        <td>Scoreboard update interval (in ticks).</td>
+                        <td><code>20</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="config-section">
+            <h3>Messages</h3>
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Default Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>prefix</code></td>
+                        <td>Prefix for all plugin messages.</td>
+                        <td><code>"&8[&aManhunt&8]"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>countdown</code></td>
+                        <td>Game start countdown message.</td>
+                        <td><code>"&eGame starting in &6{time}&e..."</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>game-start</code></td>
+                        <td>Game start message.</td>
+                        <td><code>"&aManhunt has begun! Good luck!"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>game-end-hunters-win</code></td>
+                        <td>Game end message when hunters win.</td>
+                        <td><code>"&cHunters have won the Manhunt!"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>game-end-speedrunners-win</code></td>
+                        <td>Game end message when speedrunners win.</td>
+                        <td><code>"&aSpeedrunners have won the Manhunt!"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="config-section">
+            <h3>World Settings</h3>
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Default Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>disabled-worlds</code></td>
+                        <td>Worlds where Manhunt is disabled.</td>
+                        <td><code>["world_nether", "world_the_end"]</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>enable-world-border</code></td>
+                        <td>Should world border be enabled during game?</td>
+                        <td><code>false</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>border-start-size</code></td>
+                        <td>Initial world border size (blocks).</td>
+                        <td><code>1000</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>border-shrink</code></td>
+                        <td>Should border shrink over time?</td>
+                        <td><code>false</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>border-shrink-speed</code></td>
+                        <td>Border shrink speed (blocks per minute).</td>
+                        <td><code>10</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>border-final-size</code></td>
+                        <td>Final border size (blocks).</td>
+                        <td><code>50</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="config-section">
+            <h3>Effects</h3>
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Default Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>hunters.resistance.level</code></td>
+                        <td>Resistance effect level for hunters.</td>
+                        <td><code>1</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>hunters.resistance.duration</code></td>
+                        <td>Duration of resistance effect for hunters (in seconds).</td>
+                        <td><code>30</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>speedrunners.speed.level</code></td>
+                        <td>Speed effect level for speedrunners.</td>
+                        <td><code>1</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>speedrunners.speed.duration</code></td>
+                        <td>Duration of speed effect for speedrunners (in seconds).</td>
+                        <td><code>30</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="commands">Commands</h2>
+        <p>ManhuntPlus provides several commands to manage the game:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>/manhunt hunter &lt;player&gt;</code></td>
+                    <td>Add a player as a hunter.</td>
+                </tr>
+                <tr>
+                    <td><code>/manhunt speedrunner &lt;player&gt;</code></td>
+                    <td>Add a player as a speedrunner.</td>
+                </tr>
+                <tr>
+                    <td><code>/manhunt start</code></td>
+                    <td>Start the Manhunt game.</td>
+                </tr>
+                <tr>
+                    <td><code>/manhunt stop</code></td>
+                    <td>Stop the Manhunt game.</td>
+                </tr>
+                <tr>
+                    <td><code>/manhunt status</code></td>
+                    <td>Show the current game status.</td>
+                </tr>
+                <tr>
+                    <td><code>/manhunt reload</code></td>
+                    <td>Reload the plugin configuration.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="permissions">Permissions</h2>
+        <p>ManhuntPlus uses a permission system to control access to commands:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Permission Node</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>manhunt.use</code></td>
+                    <td>Allows access to basic Manhunt commands.</td>
+                </tr>
+                <tr>
+                    <td><code>manhunt.admin</code></td>
+                    <td>Allows access to all Manhunt commands.</td>
+                </tr>
+                <tr>
+                    <td><code>manhunt.bypass</code></td>
+                    <td>Bypasses Manhunt game restrictions.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="dependencies">Dependencies</h2>
+        <p>ManhuntPlus supports and requires certain libraries for enhanced functionality:</p>
+        <ul>
+            <li><strong>ProtocolLib:</strong> Required for certain advanced features of the plugin.</li>
+            <li><strong>PlaceholderAPI:</strong> Supported for integration with placeholders for dynamic content.</li>
+        </ul>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+        <p>If you encounter issues with ManhuntPlus, consider the following steps:</p>
+        <ol>
+            <li><strong>Check Logs:</strong> Look at your server logs for any error messages related to ManhuntPlus.</li>
+            <li><strong>Verify Dependencies:</strong> Ensure all required dependencies are installed and up-to-date.</li>
+            <li><strong>Configuration:</strong> Double-check your configuration settings for any errors.</li>
+            <li><strong>Contact Support:</strong> If issues persist, visit our <a href="https://github.com/lifedestroyed/manhuntplus/issues">GitHub Issues</a> page for assistance.</li>
+        </ol>
+
+        <h2 id="support">Support</h2>
+        <p>For support, feature requests, or to report issues, please visit our <a href="https://github.com/lifedestroyed/manhuntplus">GitHub repository</a>. Contributions and feedback are welcome!</p>
+    </div>
+</body>
+</html>
