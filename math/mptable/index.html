@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица умножения</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4dabf7;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        th {
+            background-color: #333;
+            color: #4dabf7;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #252525;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #2d2d2d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Таблица умножения</h1>
+        <table id="multiplicationTable">
+            <thead>
+                <tr>
+                    <th>×</th>
+                    <!-- Заголовки столбцов -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Таблица умножения -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const table = document.getElementById('multiplicationTable');
+            const thead = table.querySelector('thead tr');
+            const tbody = table.querySelector('tbody');
+
+            // Добавляем заголовки столбцов (1–10)
+            for (let i = 1; i <= 10; i++) {
+                const th = document.createElement('th');
+                th.textContent = i;
+                thead.appendChild(th);
+            }
+
+            // Заполняем таблицу умножения
+            for (let i = 1; i <= 10; i++) {
+                const tr = document.createElement('tr');
+
+                // Добавляем заголовок строки
+                const th = document.createElement('th');
+                th.textContent = i;
+                tr.appendChild(th);
+
+                // Добавляем ячейки с результатами умножения
+                for (let j = 1; j <= 10; j++) {
+                    const td = document.createElement('td');
+                    td.textContent = i * j;
+                    tr.appendChild(td);
+                }
+
+                tbody.appendChild(tr);
+            }
+        });
+    </script>
+</body>
+</html>
